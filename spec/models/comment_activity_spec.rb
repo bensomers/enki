@@ -55,3 +55,4 @@ describe CommentActivity, '#comments' do
     2.times { activity.comments }
   end
 end
+
