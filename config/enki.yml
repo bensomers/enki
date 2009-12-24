@@ -1,6 +1,6 @@
 # Configuration options for your blog - customise to taste
 # This file contains no secret information, so can be stored in source control (unlike database.yml)
-title: So Many Robots
+title: So Many Robots!
 url:   http://www.somanyrobots.com
 exception_notifications: somers.ben@gmail.com
 
