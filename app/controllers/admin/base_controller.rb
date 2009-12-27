@@ -13,9 +13,5 @@ class Admin::BaseController < ApplicationController
     headers['Content-Type'] ||= 'text/html; charset=utf-8'
   end
 
-  def logged_in_author
-#    @current_author ||= session[:author_id] && Author.find(session[:author_id])
-     @current_author ||= Author.find(session[:author_id]) if session[:author_id]
-  end
 end
 

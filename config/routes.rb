@@ -1,9 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.namespace :admin do |admin|
     admin.resource :session
 
     admin.resource :dashboard, :controller => 'dashboard'
 
+    admin.resources :authors
     admin.resources :posts, :new => {:preview => :post}
     admin.resources :pages, :new => {:preview => :post}
     admin.resources :comments, :member => {:mark_as_spam => :put, :mark_as_ham => :put}
@@ -29,3 +31,4 @@ ActionController::Routing::Routes.draw do |map|
   map.posts_with_tag ':tag', :controller => 'posts', :action => 'index'
   map.formatted_posts_with_tag ':tag.:format', :controller => 'posts', :action => 'index'
 end
+

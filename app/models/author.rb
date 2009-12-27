@@ -1,7 +1,10 @@
 class Author < ActiveRecord::Base
+  attr_protected :admin
+
   validates_presence_of :name, :email
+  validates_uniqueness_of :open_id
   validate :open_id_valid
-  
+
   has_many :posts
 
   class << self
@@ -11,7 +14,7 @@ class Author < ActiveRecord::Base
       find(:all).detect {|a| a.open_id == uri}
     end
   end
-  
+
   def open_id
     @open_id || URI.parse(read_attribute(:open_id))
   end
@@ -23,7 +26,7 @@ class Author < ActiveRecord::Base
     end
     write_attribute(:open_id, uri.to_s)
   end
-  
+
   private
     def open_id_valid
       unless self.open_id && (self.open_id.is_a?(URI::HTTP) || self.open_id.is_a?(URI::HTTPS))
@@ -31,3 +34,4 @@ class Author < ActiveRecord::Base
       end
     end
 end
+

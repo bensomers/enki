@@ -5,7 +5,9 @@ describe Author, 'validations' do
     {
       :name    => "Don Alias",
       :email   => "don@enkiblog.com",
-      :open_id => "http://enkiblog.com"
+      :open_id => "http://enkiblog.com",
+      :admin => true
+      #TODO: verify admin addition doesn't break anything
     }
   end
 
@@ -49,10 +51,12 @@ end
 
 describe 'Author', 'with_open_id' do
   before(:each) do
-    @author = Author.create! :name => "Don Alias",
-                             :email  => "don@enkiblog.com",
-                             :open_id  => "http://enkiblog.com"
-    
+    @author = Author.new({  :name => "Don Alias",
+                            :email  => "don@enkiblog.com",
+                            :open_id  => "http://enkiblog.com"
+                        })
+    @author.admin = true
+    @author.save!
   end
   it "should return the author with matching open_id" do
     Author.with_open_id("http://enkiblog.com").should eql(@author)
@@ -61,3 +65,4 @@ describe 'Author', 'with_open_id' do
     Author.with_open_id("http://somesite.com").should be_nil
   end
 end
+
