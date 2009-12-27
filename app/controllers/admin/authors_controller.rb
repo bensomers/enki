@@ -1,4 +1,4 @@
-class Admin::AuthorsController < ApplicationController
+class Admin::AuthorsController < Admin::BaseController
   layout 'admin'
 
   before_filter :admin_check, :only => [:new, :create, :destroy]

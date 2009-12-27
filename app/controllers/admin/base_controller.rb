@@ -3,6 +3,11 @@ class Admin::BaseController < ApplicationController
 
   before_filter :require_login
 
+  def current_author
+#    @current_author ||= session[:author_id] && Author.find(session[:author_id])
+    @current_author ||= Author.find(session[:author_id]) if session[:author_id]
+  end
+
   protected
 
   def require_login

@@ -13,11 +13,6 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
 #  protect_from_forgery :secret => 'a6a9e417376364b61645d469f04ac8cf'
 
-  def current_author
-#    @current_author ||= session[:author_id] && Author.find(session[:author_id])
-    @current_author ||= Author.find(session[:author_id]) if session[:author_id]
-  end
-
   protected
 
   def set_content_type
