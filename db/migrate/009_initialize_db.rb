@@ -4,7 +4,7 @@ class InitializeDb < ActiveRecord::Migration
       t.string  :name,    :null => false
       t.string  :email,   :null => false
       t.string  :open_id, :null => false
-      t.boolean :admin, :null => false
+      t.boolean :admin,   :default => false
 
       t.timestamps
     end
