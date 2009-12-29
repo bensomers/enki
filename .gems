@@ -2,6 +2,7 @@ chronic
 coderay
 lesstile
 will_paginate
-highline
+highline -v 1.5.1
 webrat
 factory_girl
+cucumber
