@@ -180,6 +180,7 @@ describe Post, 'validations' do
       :published_at_natural => 'now'
     }
   end
+  #TODO: this may have to do with my latest test errors
 
   it 'is valid with valid_post_attributes' do
     Post.new(valid_post_attributes).should be_valid

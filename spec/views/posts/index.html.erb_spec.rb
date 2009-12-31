@@ -12,7 +12,11 @@ describe "/posts/index.html.erb" do
       :published_at      => 1.year.ago.taint,
       :slug              => 'a-post'.taint,
       :approved_comments => [mock_model(Comment)],
-      :tags              => [mock_tag]
+      :tags              => [mock_tag],
+      :author            => Author.create!({:name => "Testy McTesterson",
+                                            :email => "test@test.com",
+                                            :open_id => "http://test.@myopenid.com"
+                                            })
     )
 
     assigns[:posts] = [mock_post, mock_post]
@@ -31,3 +35,4 @@ describe "/posts/index.html.erb" do
     render "/posts/index.html.erb"
   end
 end
+
