@@ -21,8 +21,9 @@ Rails::Initializer.run do |config|
   config.gem "coderay",  :version => "~> 0.8.0"
   config.gem "lesstile", :version => "~> 0.3"
   config.gem "will_paginate", :version => "~> 2.3", :source => 'http://gemcutter.org'
-  config.gem "highline", :version => "~> 1.5.1"
-  config.gem "webrat", :version => "~> 0.6.0"
+#TODO: install highline and webrat, commented out temporarily
+#  config.gem "highline", :version => "~> 1.5.1"
+#  config.gem "webrat", :version => "~> 0.6.0"
   config.gem "factory_girl", :version => "~> 1.2.3"
 
   # Only load the plugins named here, in the order given (default is alphabetical).
@@ -38,7 +39,7 @@ Rails::Initializer.run do |config|
 
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.
-  config.time_zone = 'UTC'
+  config.time_zone = 'Eastern Time (US & Canada)'
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
