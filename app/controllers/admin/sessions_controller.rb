@@ -13,24 +13,27 @@ class Admin::SessionsController < ApplicationController
   end
 
   def create
-    return successful_login(Author.find(:first)) if allow_login_bypass? && params[:bypass_login]
-    if params[:openid_url].present?
+    # login bypass disabled until I find a better url parsing solution
+    # return successful_login(Author.find(:first)) if allow_login_bypass? && params[:bypass_login]
+    if params[:openid_url].blank? && !request.env[Rack::OpenID::RESPONSE]
+      flash.now[:error] = "You must provide an OpenID URL"
+      render :action => 'new'
+    else
       authenticate_with_open_id(params[:openid_url]) do |result, identity_url|
         if result.successful?
           if author = Author.with_open_id(identity_url)
             return successful_login(author)
           else
-            flash.now[:error] = result.message
+            flash.now[:error] = "You are not authorized"
           end
         else
-          flash.now[:error] = "Sorry, the OpenID server couldn't be found"
+          flash.now[:error] = result.message
         end
+        render :action => 'new'
       end
-    else
-      flash.now[:error] = "You must supply a URL"
     end
-    render :action => 'new'
   end
+
 
   def destroy
     session[:author_id] = nil
