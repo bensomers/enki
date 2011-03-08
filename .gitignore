@@ -1,3 +1,6 @@
+.gitignore
+*~
+*.orig
 log/**/*
 log
 tmp/**/*

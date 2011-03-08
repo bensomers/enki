@@ -1,3 +1,9 @@
+h1. Enki adjustments
+
+This just includes a few tweaks and bugfixes I've been working on to Xavier Shay's
+Enki blogging engine.  It's based on his multiple-authors branch, with my own
+edits.  Xavier's original readme included below. -brs
+
 h1. Enki
 
 A Ruby on Rails blogging app for the fashionable developer.
@@ -62,3 +68,4 @@ h2. License
 GPL(General Public License) - See LICENSE
 
 Admin design heavily inspired by "Habari":http://www.habariproject.org/en/
+

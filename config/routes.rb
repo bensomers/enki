@@ -1,7 +1,6 @@
 Enki::Application.routes.draw do
   namespace 'admin' do
     resource :session
-
     resources :posts, :pages do
       post 'preview', :on => :collection
     end
@@ -11,7 +10,6 @@ Enki::Application.routes.draw do
     end
 
     match 'health(/:action)' => 'health', :action => 'index', :as => :health
-
     root :to => 'dashboard#show'
   end
 
@@ -31,3 +29,4 @@ Enki::Application.routes.draw do
 
   root :to => 'posts#index'
 end
+

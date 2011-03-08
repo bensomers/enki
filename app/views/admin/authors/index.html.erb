@@ -1,0 +1,27 @@
+<h1>Authors</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>OpenID URL</th>
+    <th>Admin</th>
+  </tr>
+
+<% @authors.each do |author| %>
+  <tr>
+    <td><%=h author.name %></td>
+    <td><%=h author.email %></td>
+    <td><%=h author.open_id %></td>
+    <td><%=h author.admin %></td>
+    <td><%= link_to 'Show', admin_author_path(author) %></td>
+    <td><%= link_to 'Edit', edit_admin_author_path(author) %></td>
+    <td><%= link_to 'Destroy', admin_author_path(author), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New author', new_admin_author_path %>
+

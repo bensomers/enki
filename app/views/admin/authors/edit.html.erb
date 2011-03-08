@@ -1,0 +1,12 @@
+<h1>Editing <%= @author.name %></h1>
+
+<% semantic_form_for([:admin, @author]) do |form| -%>
+  <%= render :partial => 'form', :locals => {:form => form} %>
+  <% form.button_field_set do -%>
+    <%= form.commit_button("Save") -%>
+  <% end -%>
+<% end -%>
+
+<%= link_to 'Show', admin_authors_path(@author) %> |
+<%= link_to 'Index', admin_authors_path %>
+

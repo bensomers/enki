@@ -5,6 +5,9 @@ describe Post, "integration" do
   describe 'setting tag_list' do
     it 'increments tag counter cache' do
       author = Author.create!(:name => "Don", :email => "str", :open_id => "http://enkiblog.com")
+      author.admin = true
+      author.save!
+      #TODO: verify that the above two lines don't break anything
       post1 = Post.create!(:author => author, :title => 'My Post', :body => "body", :tag_list => "ruby")
       post2 = Post.create!(:author => author, :title => 'My Post', :body => "body", :tag_list => "ruby")
       Tag.find_by_name('ruby').taggings_count.should == 2
@@ -187,6 +190,7 @@ describe Post, 'validations' do
       :published_at_natural => 'now'
     }
   end
+  #TODO: this may have to do with my latest test errors
 
   it 'is valid with valid_post_attributes' do
     Post.new(valid_post_attributes).should be_valid
@@ -241,3 +245,4 @@ describe Post, '.build_for_preview' do
     @post.tags.collect {|tag| tag.name}.should == ['ruby']
   end
 end
+

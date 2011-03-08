@@ -1,0 +1,24 @@
+<p>
+  <b>Name:</b>
+  <%=h @author.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @author.email %>
+</p>
+
+<p>
+  <b>Open:</b>
+  <%=h @author.open_id %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%=h @author.admin %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_author_path(@author) %> |
+<%= link_to 'Back', admin_authors_path %>
+

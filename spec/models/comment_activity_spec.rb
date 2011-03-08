@@ -2,6 +2,11 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe CommentActivity, '#comments' do
 
+  Author.create!({:name => "Testy McTesterson",
+                  :email => "test@test.com",
+                  :open_id => "http://test.myopenid.com"
+                 })
+
   def valid_comment_attributes(extra = {})
     {
       :author       => 'Don Alias',
@@ -16,7 +21,7 @@ describe CommentActivity, '#comments' do
           :name    => 'Don',
           :email   => 'don@example.com',
           :open_id => 'http://example.com'))
-    }.merge(extra)
+   }.merge(extra)
   end
 
   context "find recent comments" do
@@ -62,3 +67,4 @@ describe CommentActivity, '#comments' do
     2.times { activity.comments }
   end
 end
+

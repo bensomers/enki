@@ -11,16 +11,14 @@ body
 
 #page_container
 {
-  width: 70em;
-  position: absolute;
+  width: 976px;
+  position: relative;
+  margin: 0 auto;
   min-height: 400px;
 
   color: black;
 
-  margin-top: 5px;
-  padding-left: 10px;
-  border-right: solid 1px #aaaaaa;
-  border-top: solid 1px #aaaaaa;
+  padding-left: 0px;
 }
 
 #footer
@@ -108,16 +106,13 @@ img
 /* Two columns */
 #navigation
 {
-  position: absolute;
+  position: relative;
+  float: left;
   width: 10em;
   top: -1px;
   right: -1px;
 
   border: none;
-  border-left: solid 1px #aaaaaa;
-  border-bottom: solid 1px #aaaaaa;
-  border-top: solid 1px white;
-  border-right: solid 1px white;
 
   padding: 10px;
 }
@@ -169,10 +164,12 @@ img
 
 #main
 {
-  padding-right: 150px;
-  padding-left: 0px;
+  padding-right: 10px;
+  padding-left: 150px;
   padding-top: 15px;
   padding-bottom: 40px;
+  border-right: solid 1px #aaaaaa;
+  border-left: solid 1px #aaaaaa;
 }
 
 div.meta

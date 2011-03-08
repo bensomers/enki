@@ -31,7 +31,11 @@ describe "/posts/show.html.erb" do
       :published_at      => 1.year.ago,
       :slug              => 'a-post',
       :approved_comments => [mock_comment, mock_comment2],
-      :tags              => [mock_tag]
+      :tags              => [mock_tag],
+      :author            => Author.create!({:name => "Testy McTesterson",
+                                      :email => "test@test.com",
+                                      :open_id => "http://test.@myopenid.com"
+                                      })
     )
     assign :post, @post
     assign :comment, Comment.new
@@ -45,3 +49,4 @@ describe "/posts/show.html.erb" do
     render :template => "/posts/show.html.erb"
   end
 end
+

@@ -1,0 +1,10 @@
+<% form.input_field_set do -%>
+  <%= form.input :name %>
+  <%= form.input :email %>
+  <%= form.input :open_id, :label => "Open ID" %>
+  <% if @current_author.admin? %>
+    <%= form.input :admin %>
+  <% end %>
+  * indicates required field
+<% end -%>
+

@@ -13,7 +13,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def create
-    @post = logged_in_author.posts.build(params[:post])
+    @post = current_author.posts.build(params[:post])
     if @post.save
       respond_to do |format|
         format.html {
@@ -89,3 +89,4 @@ class Admin::PostsController < Admin::BaseController
     @post = Post.find(params[:id])
   end
 end
+

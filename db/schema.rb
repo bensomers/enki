@@ -13,9 +13,12 @@
 ActiveRecord::Schema.define(:version => 20081224020432) do
 
   create_table "authors", :force => true do |t|
-    t.string "name",    :null => false
-    t.string "email",   :null => false
-    t.string "open_id", :null => false
+    t.string   "name",                          :null => false
+    t.string   "email",                         :null => false
+    t.string   "open_id",                       :null => false
+    t.boolean  "admin",      :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "comments", :force => true do |t|
