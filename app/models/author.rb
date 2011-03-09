@@ -2,7 +2,7 @@ class Author < ActiveRecord::Base
   attr_protected :admin
 
   validates_presence_of :name, :email
-  validates_uniqueness_of :open_id
+  validates_uniqueness_of :open_id, :message => "ID has already been taken"
   validate :open_id_valid
 
   has_many :posts

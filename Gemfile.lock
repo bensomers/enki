@@ -51,11 +51,8 @@ GEM
       i18n (~> 0.4)
     gherkin (2.3.3)
       json (~> 1.4.6)
-<<<<<<< HEAD
       term-ansicolor (~> 1.0.5)
     highline (1.6.1)
-=======
->>>>>>> 9a482afab9ec4c20b5fe052f8a8a8ce53e787384
     hpricot (0.8.3)
     i18n (0.5.0)
     json (1.4.6)
@@ -138,8 +135,4 @@ DEPENDENCIES
   ruby-openid
   sqlite3-ruby
   webrat
-<<<<<<< HEAD
   will_paginate (~> 3.0.pre2)
-=======
-  will_paginate (= 3.0.pre2)
->>>>>>> 9a482afab9ec4c20b5fe052f8a8a8ce53e787384

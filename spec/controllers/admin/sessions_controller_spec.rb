@@ -57,6 +57,7 @@ shared_examples_for "logged in and redirected to /admin" do
     response.should redirect_to('/admin')
   end
 end
+
 shared_examples_for "not logged in" do
   it "should not set session[:logged_in]" do
     session[:logged_in].should be_nil
@@ -85,6 +86,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
     ))
     @controller.should_receive(:authenticate_with_open_id).with(url).and_yield(status,url).and_return(return_value)
   end
+
   describe "with invalid URL http://evilman.com and OpenID authentication succeeding" do
     before do
       stub_open_id_authenticate("http://evilman.com", :successful, false)
@@ -92,6 +94,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "not logged in"
   end
+
   describe "with valid URL http://enkiblog.com and OpenID authentication succeeding" do
     before do
       stub_open_id_authenticate("http://enkiblog.com", :successful, false)
@@ -100,6 +103,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "logged in and redirected to /admin"
   end
+
   describe "with valid URL http://enkiblog.com and OpenID authentication returning 'failed'" do
     before do
       stub_open_id_authenticate("http://enkiblog.com", :failed, true)
@@ -107,6 +111,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "not logged in"
   end
+
   describe "with valid URL http://enkiblog.com and OpenID authentication returning 'missing'" do
     before do
       stub_open_id_authenticate("http://enkiblog.com", :missing, true)
@@ -114,6 +119,7 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "not logged in"
   end
+
   describe "with valid URL http://enkiblog.com and OpenID authentication returning 'canceled'" do
     before do
       stub_open_id_authenticate("http://enkiblog.com", :canceled, true)
@@ -121,19 +127,23 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "not logged in"
   end
+
   describe "with no URL" do
     before do
       post :create, :openid_url => ""
     end
     it_should_behave_like "not logged in"
   end
+
   describe "with bypass login selected" do
     before do
       Author.stub!(:find).and_return(Author.new)
       post :create, :openid_url => "", :bypass_login => "1"
     end
+    # This is a known failure, because I've got bypass commented out right now
     it_should_behave_like "logged in and redirected to /admin"
   end
+
   describe "with bypass login selected but login bypassing disabled" do
     before do
       Author.stub!(:find).and_return(Author.new)
@@ -142,4 +152,5 @@ describe Admin::SessionsController, "handling CREATE with post" do
     end
     it_should_behave_like "not logged in"
   end
+
 end
