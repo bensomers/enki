@@ -25,6 +25,7 @@ gem 'coderay'
 gem 'lesstile'
 gem 'formtastic'
 gem 'will_paginate', '~> 3.0.pre2'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'highline' # For rake setup
 

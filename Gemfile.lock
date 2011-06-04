@@ -87,6 +87,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    recaptcha (0.3.1)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -130,6 +131,7 @@ DEPENDENCIES
   lesstile
   rack-openid
   rails (= 3.0.4)
+  recaptcha
   rspec
   rspec-rails
   ruby-openid
