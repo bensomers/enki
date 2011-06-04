@@ -30,6 +30,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new((session[:pending_comment] || params[:comment] || {}).reject {|key, value| !Comment.protected_attribute?(key) })
     @comment.post = @post
 
+    unless verify_recaptcha(:model => @comment, :message => "Looks like you might be a robot!  We only want so many of those, not too many.  Try again, robot.")
+      render(:template => 'posts/show') and return
+      # redirect_to post_path(@post) and return
+    end
+
     session[:pending_comment] = nil
 
     if @comment.requires_openid_authentication?
