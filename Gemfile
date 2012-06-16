@@ -14,16 +14,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-platforms :ruby do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-end
-
-platforms :jruby do
-  gem 'activerecord-jdbcsqlite3-adapter'
-  gem 'trinidad'
-  gem 'jruby-openssl'
-end
-
 gem 'jquery-rails'
 
 # Use unicorn as the web server
@@ -66,5 +56,10 @@ group :test do
 end
 
 group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'rspec-rails'
+end
+
+group :production do
+  gem 'pg'
 end
