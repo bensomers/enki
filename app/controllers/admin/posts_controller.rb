@@ -56,6 +56,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def preview
+    params[:post].merge!(:author => current_author)
     @post = Post.build_for_preview(params[:post])
 
     respond_to do |format|
