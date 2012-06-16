@@ -20,6 +20,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 gem 'thin' # specify thin for heroku Cedar
+gem 'foreman'
 
 # Deploy with Capistrano
 # gem 'capistrano'
