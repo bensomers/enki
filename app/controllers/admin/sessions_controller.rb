@@ -14,7 +14,8 @@ class Admin::SessionsController < ApplicationController
 
   def create
     # login bypass disabled until I find a better url parsing solution
-    # return successful_login(Author.find(:first)) if allow_login_bypass? && params[:bypass_login]
+    return successful_login(Author.with_open_id(params[:openid_url])) if allow_login_bypass? && params[:bypass_login]
+
     if params[:openid_url].blank? && !request.env[Rack::OpenID::RESPONSE]
       flash.now[:error] = "You must provide an OpenID URL"
       render :action => 'new'
