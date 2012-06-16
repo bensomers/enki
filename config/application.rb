@@ -13,6 +13,9 @@ require "sprockets/railtie"
 # once it is all sorted out. The const_defined check is required for 1.8.7 compat.
 YAML::ENGINE.yamler = "syck" if YAML.const_defined?("ENGINE")
 
+# Dirty workaround for a bug in open_id_authentication that will probably never get fixed
+module OpenIdAuthentication; module ControllerMethods; end; end
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
   Bundler.require(*Rails.groups(:assets => %w(development test)))
