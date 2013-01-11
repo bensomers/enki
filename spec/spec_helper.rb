@@ -26,6 +26,11 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
 end
 
+Recaptcha.configure do |config|
+  config.public_key = '0000000000000000000000000000000000000000'
+  config.private_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+end
+
 module DisableFlashSweeping
   def sweep
   end
