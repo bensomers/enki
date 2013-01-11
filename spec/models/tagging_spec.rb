@@ -1,12 +1,12 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
-Author.create!({:name => "Testy McTesterson",
-                  :email => "test@test.com",
-                  :open_id => "http://test.myopenid.com"
-                 })
-
 describe Tagging do
   before(:each) do
+    Author.create!({:name => "Testy McTesterson",
+                      :email => "test@test.com",
+                      :open_id => "http://test.myopenid.com"
+                     })
+
     @taggable = Post.create!(:title => 'My Post', :body => 'body', :author => Author.first, :tag_list => 'oblong, square, triangle')
   end
 

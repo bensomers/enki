@@ -2,10 +2,12 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe CommentActivity, '#comments' do
 
-  Author.create!({:name => "Testy McTesterson",
-                  :email => "test@test.com",
-                  :open_id => "http://test.myopenid.com"
-                 })
+  before(:each) do
+    Author.create!({:name => "Testy McTesterson",
+                    :email => "test@test.com",
+                    :open_id => "http://test.myopenid.com"
+                   })
+  end
 
   def valid_comment_attributes(extra = {})
     {
@@ -17,10 +19,8 @@ describe CommentActivity, '#comments' do
         :title    => 'My Post',
         :body     => "body",
         :tag_list => "ruby",
-        :author => Author.create!(
-          :name    => 'Don',
-          :email   => 'don@example.com',
-          :open_id => 'http://example.com'))
+        :author => Author.find_by_open_id("http://test.myopenid.com")
+      )
    }.merge(extra)
   end
 
