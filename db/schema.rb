@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,15 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081224020432) do
+ActiveRecord::Schema.define(:version => 20110709024316) do
 
   create_table "authors", :force => true do |t|
     t.string   "name",                          :null => false
     t.string   "email",                         :null => false
     t.string   "open_id",                       :null => false
     t.boolean  "admin",      :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20081224020432) do
   end
 
   add_index "pages", ["created_at"], :name => "index_pages_on_created_at"
+  add_index "pages", ["slug"], :name => "pages_slug_unique_idx", :unique => true
   add_index "pages", ["title"], :name => "index_pages_on_title"
 
   create_table "posts", :force => true do |t|
@@ -78,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20081224020432) do
   end
 
   add_index "posts", ["published_at"], :name => "index_posts_on_published_at"
+  add_index "posts", ["slug"], :name => "posts_slug_unique_idx"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
