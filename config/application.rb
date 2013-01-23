@@ -71,6 +71,6 @@ module Enki
     config.assets.version = '1.0'
 
 
-    Enki::Application.config.secret_token = ENV['SECRET_TOKEN'] || File.read("config/secret_token")
+    config.secret_token = ENV['SECRET_TOKEN'] || File.read("config/secret_token")
   end
 end
