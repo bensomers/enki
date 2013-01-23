@@ -69,5 +69,8 @@ module Enki
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+
+    Enki::Application.config.secret_token = ENV['SECRET_TOKEN'] || File.read("config/secret_token")
   end
 end

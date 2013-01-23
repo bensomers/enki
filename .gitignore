@@ -6,6 +6,7 @@ log
 tmp/**/*
 tmp
 config/database.yml
+config/secret_token
 db/schema.rb
 .bundle
 *.log
